@@ -121,7 +121,7 @@ function generate(){
     }
 
     document.getElementById("wiki_link").href = 'https://en.wikinews.org/w/index.php?action=edit&preload=Wikinews%3AWikiReporter%2Fdraft&editintro=Wikinews%3AWikiReporter%2Fintro&title='+eventname;
-    document.getElementById("photo_link").href = 'https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=WikiReporter&categories=Category:' + eventname + '&description=' + eventname;
+    document.getElementById("photo_link").href = 'https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=WikiReporter&categories=' + eventname + '|WikiReporter&description=' + eventname;
 }
 
 var app = {
