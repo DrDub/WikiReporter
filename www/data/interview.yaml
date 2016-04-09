@@ -7,7 +7,7 @@
     name: movement
     template: "It was part of the $movement movement."
     inputType: freeText
-  - label: 'What precipitating incident, person or organization, was the event reacting to?'
+  - label: 'What was the immediate cause?'
     name: cause
     template: "The event was held in reaction to $cause."
     inputType: freeText
@@ -70,6 +70,6 @@
     inputType: yesNo
   - label: 'How many people got arrested?'
     name: peopleArrested
-    template: "There was $policePresence police presence."
+    template: "There were $peopleArrested people arrested."
     inputType: number
   
