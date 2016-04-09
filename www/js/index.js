@@ -217,7 +217,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 	var current = "main";
-	this.setPane = function(pane){
+	app.setPane = function(pane){
 	    document.getElementById(current).style.visibility="hidden";
 	    document.getElementById(current).style.display="none";
 	    current = pane;
@@ -225,7 +225,7 @@ var app = {
 	    document.getElementById(current).style.display="block";
 	};
 	var button_generate = true;
-	this.toggleButtons = function(){
+	app.toggleButtons = function(){
 	    if(button_generate){
 		button_generate = false;
 		document.getElementById("btn_generate").style.visibility="hidden";
@@ -240,17 +240,17 @@ var app = {
 		document.getElementById("btn_generate").style.display="block";
 	    }
 	};
-	this.doneButton = function(btnId) {
+	app.doneButton = function(btnId) {
 	    var btn = document.getElementById(btnId);
 	    btn.className = "btn btn-success btn-xs";
 	};
-	this.diveNode = function(nodeId){
-	    this.current.push(nodeId);
-	    this.render(nodeId);
+	app.diveNode = function(nodeId){
+	    app.current.push(nodeId);
+	    app.render(nodeId);
 	};
-	this.render = function() {
+	app.render = function() {
 	    var html = "";
-	    var node = this.interviewTable[app.current[app.current.length-1]];
+	    var node = app.interviewTable[app.current[app.current.length-1]];
 	    if(node.level == 1){
 		html += "<h2>" + node.label + "</h2>";
 		if(node.inputType == "options" || node.inputType == "freeOptions"){
@@ -296,9 +296,9 @@ var app = {
 	    html += "";
 	    document.getElementById("main").innerHTML = html;
 	};
-	this.gather = function() {
+	app.gather = function() {
 	    // invariant: current[-1].level == 1
-	    var node = this.interviewTable[app.current[app.current.length-1]];
+	    var node = app.interviewTable[app.current[app.current.length-1]];
 	    node.gathered = {};
 	    if(node.inputType == "options" || node.inputType == "freeOptions"){
 		var selVal = getSelectValues(document.getElementById('sel'));
@@ -316,8 +316,9 @@ var app = {
 	    app.current.pop();
 	    app.render();
 	};
-	this.generate = function() { generate() };
-	this.interview = null; //[ "loading?" : [ { "is loading?" : { "options" : [ "yes" ] } } ] ];
+	app.generate = function() { generate() };
+	if(!window.cordova){
+	app.interview = null; //[ "loading?" : [ { "is loading?" : { "options" : [ "yes" ] } } ] ];
 	var interviewFetcher = new XMLHttpRequest();
 	interviewFetcher.onreadystatechange = function(){
 	    if (interviewFetcher.readyState == 4 && interviewFetcher.status == 200) {
@@ -341,8 +342,18 @@ var app = {
 	    }
 	};
 	templatesFetcher.open("GET", "/data/templates.txt");
-	templatesFetcher.send();
-	
+        templatesFetcher.send();
+	}else{
+	    window.setTimeout(function(){
+ 		app.interview = jsyaml.load(interview_blob);
+		app.interviewTable = numerateAndFix(app.interview);
+		//alert(JSON.stringify(app.interviewTable));
+		app.current = [ 0 ];
+		app.render();
+		app.templates = templates_blob;
+		app.templateTable = parseTemplates(app.templates);
+	    }, 0);
+	}
     }
 };
 
