@@ -44,32 +44,10 @@
       <a href="javascript:void(0)" id="btn_back" style="visibility: hidden" onclick="app.toggleButtons(); app.setPane('main');" class="btn btn-danger">Back</a>
       </p>
 	<div id="main">
-	  <ul>
-	    <li> <a id="btn_event" href="javascript:void(0)" onclick="app.setPane('event')" class="btn btn-danger btn-xs">What type of event?</a> </li>
-	    <li> <input type="button" value="What issue is being addressed?"> </li>
-	    <li> <input type="button" value="When?"> </li>
-	    <li> <input type="button" value="Where?"> </li>
-	    <li> <input type="button" value="Who are the organizers?"> </li>
-	  </ul>
 	</div>
-    <div id="event" style="visibility: hidden">
-      <h2>What type of event?</h2>
-	  <select id="sel_event" multiple>
-	    <option value="Protest">Protest</option>
-	    <option value="Conference">Conference</option>
-	    <option value="March">March</option>
-	    <option value="Parade">Parade</option>
-	    <option value="Workshop">Workshop</option>
-	    <option value="Lecture">Lecture</option>
-	    <option value="Riot">Riot</option>
-	    <option value="Celebration">Celebration</option>
-	    <option value="Presentation">Presentation</option>
-	  </select>
-	  <br/>
-	  <a href="javascript:void(0)" onclick="app.doneButton('btn_event'); app.setPane('main');" class="btn btn-success btn-xs">done here</a>
-        </div>
 	<div id="output" style="visibility: hidden">
-	  <p>Please cut&paste this into your Wiki News submission</p>
+	  <p>Please cut&paste this into your <a id="wiki_link">Wiki News submission</a></p>
+	  <p>Send any related photos to <a id="photo_link">Wikimedia Commons</a></p>
 	  <textarea id="txt_output" rows="10">
 	  </textarea>
 	    

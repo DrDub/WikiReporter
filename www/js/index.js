@@ -1,20 +1,6 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
+/* Dual licensed APL2.0 & GPL3.0.
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Author: Pablo Duboue <pablo.duboue@gmail.com>
  */
 
 function getSelectValues(select) {
@@ -128,7 +114,14 @@ function generate(){
     text += "\n\n<!-- " + JSON.stringify(data) + " -->";
     document.getElementById("txt_output").innerHTML = text;
 
-    // set link to https://en.wikinews.org/w/index.php?action=edit&preload=Wikinews%3AWikiReporter%2Fdraft&editintro=Wikinews%3AWikiReporter%2Fintro&title=<eventname>
+    
+    var eventname = "unknownevent";
+    if('eventname' in data && 'txt' in data.eventname){
+	eventname = data.eventname.txt;
+    }
+
+    document.getElementById("wiki_link").href = 'https://en.wikinews.org/w/index.php?action=edit&preload=Wikinews%3AWikiReporter%2Fdraft&editintro=Wikinews%3AWikiReporter%2Fintro&title='+eventname;
+    document.getElementById("photo_link").href = 'https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=WikiReporter&categories=Category:' + eventname + '&description=' + eventname;
 }
 
 var app = {
