@@ -1,0 +1,75 @@
+- main data:
+  - label: 'What was the name of the event?'
+    name: eventname
+    template: "$eventname happened."
+    inputType: freeText
+  - label: 'What social or political movement was it a part of?'
+    name: movement
+    template: "It was part of the $movement movement."
+    inputType: freeText
+  - label: 'What precipitating incident, person or organization, was the event reacting to?'
+    name: cause
+    template: "The event was held in reaction to $cause."
+    inputType: freeText
+  - label: 'What sort of event happened?'
+    name: eventtype
+    template: "There was a $eventtype."
+    inputType: options
+    options:
+    - label: Protest
+      semantics:
+        head: protest
+    - label: Conference
+      semantics:
+        head: conference
+    - label: March
+      semantics:
+        head: march
+    - label: Speech
+      semantics:
+        head: speech
+    - label: Workshop
+      semantics:
+        head: workshop
+    - label: Lecture
+      semantics:
+        head: lecture
+    - label: Riot
+      semantics:
+        head: riot
+    - label: Celebration
+      semantics:
+        head: celebration
+    - label: Presentation
+      semantics:
+        head: presentation
+  - label: 'Date of event?'
+    name: time
+    template: "It happened on $time."
+    inputType: freeText
+  - label: 'City?'
+    name: place
+    template: "It happened in $place."
+    inputType: freeText
+  - label: 'What specific location (venue, park, building, street)?'
+    name: venue
+    template: "It took place at $venue."
+    inputType: freeText
+  - label: 'Please list notable attendees'
+    name: notableattendees
+    template: "Notable attendees included $notableattendees."
+    inputType: freeText
+  - label: 'Please list event organizers?'
+    name: eventorganizers
+    template: "Event organizers included $eventorganizers."
+    inputType: freeText
+- extra data:
+  - label: 'Was there police presence?'
+    name: policePresence
+    template: "There was $policePresence police presence."
+    inputType: yesNo
+  - label: 'How many people got arrested?'
+    name: peopleArrested
+    template: "There was $policePresence police presence."
+    inputType: number
+  

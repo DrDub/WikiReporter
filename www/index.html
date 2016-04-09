@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <!-- link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" / -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>WikiReporter</title>
+    </head>
+  <body>
+    <div id="container">
+      <h1>WikiNews Reporter</h1>
+      <p style="width: 100%"><a href="javascript:void(0)" id="btn_generate" onclick="app.generate(); app.setPane('output'); app.toggleButtons();" class="btn btn-success btn">Generate Article!</a>
+      <a href="javascript:void(0)" id="btn_back" style="visibility: hidden" onclick="app.toggleButtons(); app.setPane('main');" class="btn btn-danger">Back</a>
+      </p>
+	<div id="main">
+	  <ul>
+	    <li> <a id="btn_event" href="javascript:void(0)" onclick="app.setPane('event')" class="btn btn-danger btn-xs">What type of event?</a> </li>
+	    <li> <input type="button" value="What issue is being addressed?"> </li>
+	    <li> <input type="button" value="When?"> </li>
+	    <li> <input type="button" value="Where?"> </li>
+	    <li> <input type="button" value="Who are the organizers?"> </li>
+	  </ul>
+	</div>
+    <div id="event" style="visibility: hidden">
+      <h2>What type of event?</h2>
+	  <select id="sel_event" multiple>
+	    <option value="Protest">Protest</option>
+	    <option value="Conference">Conference</option>
+	    <option value="March">March</option>
+	    <option value="Parade">Parade</option>
+	    <option value="Workshop">Workshop</option>
+	    <option value="Lecture">Lecture</option>
+	    <option value="Riot">Riot</option>
+	    <option value="Celebration">Celebration</option>
+	    <option value="Presentation">Presentation</option>
+	  </select>
+	  <br/>
+	  <a href="javascript:void(0)" onclick="app.doneButton('btn_event'); app.setPane('main');" class="btn btn-success btn-xs">done here</a>
+        </div>
+	<div id="output" style="visibility: hidden">
+	  <p>Please cut&paste this into your Wiki News submission</p>
+	  <textarea id="txt_output" rows="10">
+	  </textarea>
+	    
+      </div>
+      </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lib/js-yaml.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
