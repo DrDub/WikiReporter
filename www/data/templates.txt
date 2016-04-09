@@ -1,0 +1,5 @@
+The $eventname $eventtype was held on $time.
+At the $venue in $place, $eventorganizers gathered people to $eventtype.
+The $cause got the $eventorganizers in $movement to organize a $eventtype at $place.
+
+

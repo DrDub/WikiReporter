@@ -106,7 +106,7 @@ function generate(){
 		if(txts.length > 1){
 		    txt += " and " + txts[txts.length-1];
 		}
-		text += templates[name].replace(/\$[a-zA-Z]+/, txt);
+		text += templates[name].replace(/\$[a-zA-Z]+/, txt) + " ";
 	    }
 	}
     }
