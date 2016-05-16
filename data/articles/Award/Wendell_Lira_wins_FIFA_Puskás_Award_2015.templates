@@ -1,1 +1,7 @@
 $awardee, a $awardeenationality:demonym $awardeeocupation, won the $award in $awardceremonylocation on $awarddate:relative.
+$awardee, a $awardeenationality, won the $award in $awardceremonylocation on $awarddate:relative.
+$awardee won the $award in $awardceremonylocation on $awarddate:relative.
+$awardee won the $award in $awardceremonylocation.
+$awardee won the $award on $awarddate:relative.
+$awardee, a $awardeenationality:demonym $awardeeocupation, won the $award.
+$awardee, a $awardeenationality:demonym $awardeeocupation, won the $award in $awardceremonylocation.

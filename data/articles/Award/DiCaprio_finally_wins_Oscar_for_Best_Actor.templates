@@ -1,6 +1,12 @@
 $awarddate:relative, $awardee won $award, for $awardcategory, at $awardceremony.
+$awardee won $award, for $awardcategory, at $awardceremony.
+$awarddate:relative, $awardee won $award at $awardceremony.
+$awardee won $award at $awardceremony.
+$awarddate:relative, $awardee won $award, for $awardcategory.
+$awardee won $award, for $awardcategory.
 ``$awardeequote''.
 $awardee:pron said ``$awardeequote''.
 $awardee collected $award for $awardee:posspron performance in $event.
+$awardee collected $award for $event.
 $awardee won the award for $awardcategory.
 $awardee won the $awardcategory:noun award.

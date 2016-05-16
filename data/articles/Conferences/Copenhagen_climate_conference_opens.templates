@@ -1,0 +1,10 @@
+The $conference has opened on $conferencestartdate:relative on $topic.
+The conference at $venue in $conferencelocation is running for $length:days-days from $conferencestartdate until $conferenceenddate.
+The conference in $conferencelocation is running for $length:days-days from $conferencestartdate until $conferenceenddate.
+The conference in $conferencelocation is running for $length:days-days.
+The conference is running for $length:days-days.
+The conference at $venue is running for $length:days-days from $conferencestartdate until $conferenceenddate.
+The conference at $venue is running from $conferencestartdate until $conferenceenddate.
+The conference at $venue is running for $length:days-days from $conferencestartdate.
+The conference is running for $length:days-days from $conferencestartdate until $conferenceenddate.
+Around $attendeenumber attendees including $attendee attended.

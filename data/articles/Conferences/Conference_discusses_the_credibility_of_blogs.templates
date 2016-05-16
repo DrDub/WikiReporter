@@ -1,0 +1,7 @@
+Seeking to $purpose, at $conferencelocation:at $conferencedate:relative there was a $length:days-day, $conferencename conference.
+Seeking to $purpose, at $conferencelocation:at $conferencedate:relative there was the $conferencename conference.
+Seeking to $purpose, at $conferencelocation:at there was the $conferencename conference.
+Held at $conferencelocation:at, the conference was an initiative of $organizer.
+Attendees included $attendee.
+Speakers included $speaker.
+Topics included $topic.

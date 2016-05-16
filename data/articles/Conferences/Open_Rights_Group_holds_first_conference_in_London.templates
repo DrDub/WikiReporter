@@ -1,0 +1,14 @@
+The $organizer, $organizerdescription, held its $conferencename $conferencedate:relative at $conferencelocation:at.
+The $organizer, $organizerdescription, held its $conference $conferencedate:relative at $conferencelocation:at.
+The $organizer, $organizerdescription, held its $conferencename $conferencedate:relative at $venue.
+The $organizer, $organizerdescription, held its $conference $conferencedate:relative at $venue.
+The $organizer held its $conferencename $conferencedate:relative at $conferencelocation:at.
+The $organizer held its $conference $conferencedate:relative at $conferencelocation:at.
+The $organizer held its $conferencename $conferencedate:relative at $venue.
+The $organizer held its $conference $conferencedate:relative at $venue.
+The $organizer held its $conferencename at $conferencelocation:at.
+The $organizer held its $conference at $conferencelocation:at.
+The $organizer held its $conferencename at $venue.
+The $organizer held its $conference at $venue.
+Approximately $attendeenumber attendees took part in $length:hours hours of talks on $topic.
+Approximately $attendeenumber attendees took part in $length:days days of talks on $topic.

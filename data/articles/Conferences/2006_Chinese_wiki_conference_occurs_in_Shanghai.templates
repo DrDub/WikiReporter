@@ -1,0 +1,4 @@
+$conferencedate:relative, $conference organized by $organizer, $organizerdescription, was held in $conferencelocation.
+$conferencedate:relative, $conference organized by $organizer was held in $conferencelocation.
+$conferencedate:relative, $conference was held in $conferencelocation.
+$conference aims to $purpose.

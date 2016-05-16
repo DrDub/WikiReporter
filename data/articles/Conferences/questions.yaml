@@ -1,0 +1,38 @@
+- conferencedate:
+    - default: The was held in $conferencedate.
+    - relative: $conferencedate:relative, the conference happened.
+- conferencestartdate:
+    - default: The started in $conferencestartdate.
+    - relative: $conferencestartdate:relative, the conference started.
+- conferenceenddate:
+    - default: The ended in $conferencestartdate.
+    - relative: $conferenceenddate:relative, the conference ended.
+- conference:
+    - default: The conference held is $conference.
+- conferencename:
+    - default: The name of the conference is $conferencename.
+- organizer:
+    - default: The conference is organized by $organizer.
+- organizerdescription:
+    - default: The organizer is $organizerdescription.
+- conferencelocation:
+    - default: The conference happened in $conferencelocation.
+    - at: The conference happened at $conferencelocation:at.
+- venue:
+    - default: The conference happened at the venue $venue.
+- purpose:
+    - default: The purpose of the conference is to $purpose.
+- length:
+    - default: The conference was held by $length.
+    - days: The conference was held by $length:days days.
+    - hours: The conference was held by $length:hours hours.
+- attendee:
+    - default: The conference attendees included $attendee.
+- speaker:
+    - default: The conference speakers included $speaker.
+- topic:
+    - default: Topics included $topic.
+- attendeenumber:
+    - default: The total number of attendees was around $attendeenumber.
+- attendeesdescription:
+    - default: The attendees were $attendeesdescription.

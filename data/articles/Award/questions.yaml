@@ -21,8 +21,8 @@
 - event:
    - default: The person won an award because of their involvement in $event.
 - awarddate:
-   - default: The person won the award in $date.
-   - relative: $date:relative, the person won the award.
+   - default: The person won the award in $awarddate.
+   - relative: $awarddate:relative, the person won the award.
 - awardcategory:
    - default: The person won the award for $awardcategory.
    - noun: The person won the $awardcategory:noun award.
