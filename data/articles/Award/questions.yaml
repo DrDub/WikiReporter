@@ -1,0 +1,43 @@
+- team:
+  - default: The person was a member of $team.
+- awardee:
+  - default: The person that received the award was $awardee
+  - posspron: The person enjoyed $awardee:posspron award.
+  - pron: $awardee:pron was the person that received the award.
+- award:
+  - default: The person won $award
+- reason:
+  - default: The person won the award because of $reason.
+  - for: The person won the award for $reason:for.
+  - on: The person won the award for work on $reason:on.
+- whyfamous:
+   - default: The person who won the award is well-known because $whyfamous.
+   - np: The person who won the award is well-known as $whyfamous:np.
+- activesince:
+   - default: The person who won the award has been working since $activesince.
+   - in: The person who won the award started working in $activesince:in.
+- reasonstarted:
+   - default: The person who won the award started working because $reasonstarted.
+- event:
+   - default: The person won an award because of their involvement in $event.
+- awarddate:
+   - default: The person won the award in $date.
+   - relative: $date:relative, the person won the award.
+- awardcategory:
+   - default: The person won the award for $awardcategory.
+   - noun: The person won the $awardcategory:noun award.
+- awardceremony:
+   - default: The person won the award at $awardceremony.
+- awardeequote:
+   - default: On receiving the award, the awardee said: $awardeequote.
+- awarder:
+   - default: The award was given by $awarder.
+- awardeeorigin:
+   - default: The person who won the award originates from $awardeeorigin.
+- awardceremonylocation:
+   - default: The person received the award in $awardceremonylocation.
+- awardeenationality:
+   - default: The person who won the award is from $awardeenationality.
+   - demonym: The person who won the award is a $awardeenationality:demonym.
+- awardeeocupation:
+   - default: The person who won the award works as a $awardeeocupation.
