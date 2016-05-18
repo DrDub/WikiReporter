@@ -1,0 +1,33 @@
+- exhibitname:
+  - default: There was an exhibit named $exhibitname.
+- subevent:
+  - default: The exhibit included $subevent.
+- sponsor:
+  - default: Sponsors included $sponsor.
+- sponsorship:
+  - default: There was sponsored $sponsorship.
+  - linkto: $sponsor.
+- seminar:
+  - include: conference
+- exhibited:
+  - default: Objects being exhibited included $exhibited.
+- exhibitroute:
+  - default: The exhibit is touring $exhibitroute.
+- exhibityear:
+  - default: The exhibit happened in year $exhibityear.
+- exhibittype:
+  - default: There was a $exhibittype exhibit.
+- exhibitstartdate:
+  - default: The exhibit started on $exhibitstartdate.
+  - art: The exhibit started on the $exhibitstartdate:art.
+  - relative: $exhibitstartdate:relative, the exhibit started.
+- exhibitenddate:
+  - default: The exhibit ended on $exhibitenddate.
+  - art: The exhibit ended on the $exhibitenddate:art.
+  - relative: $exhibitenddate:relative, the exhibit started.
+- exhibitvenue:
+  - default: The exhibit happened at $exhibitvenue.
+- exhibitdescription:
+  - default: The exhibit has been described as $exhibitdescription.
+- admissionprice:
+  - default: The price of the admission is $admissionprice.
