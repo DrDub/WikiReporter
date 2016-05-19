@@ -1,0 +1,12 @@
+$speakeroccupation $speaker spoke to over $attendee:number $lecturestartdate:relative in $location at $venue.
+$speaker spoke to over $attendee:number $lecturestartdate:relative in $location at $venue.
+$speakeroccupation $speaker spoke to over $attendee:number $lecturestartdate:relative in $location.
+$speakeroccupation $speaker spoke to over $attendee:number $lecturestartdate:relative at $venue.
+$speakeroccupation $speaker spoke to over $attendee:number in $location at $venue.
+$speakeroccupation $speaker spoke to over $attendee:number in $location.
+$speakeroccupation $speaker spoke to over $attendee:number at $venue.
+$speaker spoke to over $attendee:number $lecturestartdate:relative in $location.
+$speaker spoke to over $attendee:number $lecturestartdate:relative at $venue.
+$speaker spoke to over $attendee:number in $location at $venue.
+$speaker spoke to over $attendee:number in $location.
+$speaker spoke to over $attendee:number at $venue.

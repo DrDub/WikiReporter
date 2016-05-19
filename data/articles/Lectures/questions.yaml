@@ -1,0 +1,29 @@
+- lecturestartdate:
+    - default: The lecture started in $lecturestartdate.
+    - relative: $lecturestartdate:relative, the lecture started.
+- speaker:
+    - default: The lecture was given by $speaker.
+    - pron: $speakerpron gave a lecture.
+- location:
+    - default: The lecture happened at $location.
+    - art: The lecture happened at the $location:art.
+- venue:
+    - default: The lecture happened at $venue.
+- topic:
+    - default: The topic of the lecture was $topic.
+- title:
+    - default: The title of the lecture was $title.
+- attendee:
+    - default: The lecture was attended by $attendee.
+    - number: The lecture was attended by $attendee:number people.
+- organizer:
+    - default: The lecture was organised by $organizer.
+- speakeroccupation:
+    - default: The speaker was $speakeroccupation.
+- audicencereaction:
+    - default: The audience reacted by $audiencereaction.
+- quote:
+    - default: The speaker said $quote.
+- lecturetype:
+    - oneof: { lecture, speech }
+    - default: The speaker gave a $lecturetype.

@@ -1,0 +1,8 @@
+$lecturedatestart:relative, $speaker visited the $location:art to give a lecture on $topic, entitled $title.
+$lecturedatestart:relative, $speaker visited the $location:art to give a lecture on $topic.
+$lecturedatestart:relative, $speaker visited the $location:art to give a lecture.
+$speaker visited the $location:art to give a lecture on $topic, entitled $title.
+$speaker visited the $location:art to give a lecture on $topic.
+$speaker visited the $location:art to give a lecture.
+Some $attendee:number people attended the conference.
+The lecture was organised by $organizer.

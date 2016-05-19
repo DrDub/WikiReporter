@@ -1,0 +1,6 @@
+$speakeroccupation $speaker delivered $lecturetype $lecturestartdate:relative to $attendee at the $event.
+$speakeroccupation $speaker delivered $lecturetype to $attendee at the $event.
+$speakeroccupation $speaker delivered $lecturetype to $attendee.
+$speaker delivered $lecturetype $lecturestartdate:relative to $attendee at the $event.
+$speaker delivered $lecturetype to $attendee at the $event.
+$speaker delivered $lecturetype to $attendee.

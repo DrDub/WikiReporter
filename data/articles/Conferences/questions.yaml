@@ -1,11 +1,11 @@
 - conferencedate:
-    - default: The was held in $conferencedate.
+    - default: The conference was held in $conferencedate.
     - relative: $conferencedate:relative, the conference happened.
 - conferencestartdate:
-    - default: The started in $conferencestartdate.
+    - default: The conference started in $conferencestartdate.
     - relative: $conferencestartdate:relative, the conference started.
 - conferenceenddate:
-    - default: The ended in $conferencestartdate.
+    - default: The conference ended in $conferencestartdate.
     - relative: $conferenceenddate:relative, the conference ended.
 - conference:
     - default: The conference held is $conference.
