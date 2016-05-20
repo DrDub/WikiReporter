@@ -1,0 +1,4 @@
+Following $reason, $people:number people turned out $protestdate:relative for a march in $location.
+Following $reason, $people:number people turned out for a march in $location.
+$people:number people turned out for a march in $location.
+$vip attended the $location:city march.

@@ -1,0 +1,27 @@
+- location:
+    - default: The protest happened in $location.
+    - country: The protest happened in $location:country.
+    - city: The protest happened in $location:city.
+- protestors:
+    - default: The protest was by $protestors.
+    - number: The protest was held by $protestors:number people.
+- arrested:
+    - default: The people arrested included $arrested.
+    - number: There were $arrested:number people arrested.
+- protestdate:
+    - default: A protest was held $protestdate.
+    - relative: $protestdate, a protest was held.
+- reason:
+    - default: The protesters were there because of $reason.
+    - support: The people protesting were there in support of $reason:support.
+    - against: The people protesting were there against $reason:against.
+- vip:
+    - default: In the protest $vip was also present.
+- organizer:
+    - default: The protest was organized by $organizer.
+- location:
+    - default: The protest was held at $location.
+    - outside: The protest was held outside $location:outside.
+- protestname:
+    - default: The protest was named $protestname.
+    

@@ -1,0 +1,3 @@
+$protestors:number protested in $location.
+The estimated number of protesters was $protestors:number.
+Around $arrested:number people were arrested.
