@@ -1,0 +1,23 @@
+- people:
+    - default: The parade had $people walking.
+    - number: The parade had $people:number people walking.
+- paradename:
+    - default: The parade was named $paradename.
+    - parade: This was the $paradename:parade parade.
+- paradedate:
+    - default: The parade happened at $paradedate.
+    - relative: $paradatedate:relative, the parade happened.
+- location:
+    - default: The parade happened at $location.
+    - in: The parade happened in $location.
+- topic:
+    - default: The parade was because of $topic.
+    - demanded: The parade demanded $topic:demanded.
+- path:
+    - default: The parade went through $path.
+- organizer:
+    - default: The parade was organized by $organizer.
+- vip:
+    - default: The parade included the presence of $vip.
+      
+    
