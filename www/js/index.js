@@ -317,7 +317,7 @@ var app = {
 	    app.render();
 	};
 	app.generate = function() { generate() };
-	if(!window.cordova){
+
 	app.interview = null; //[ "loading?" : [ { "is loading?" : { "options" : [ "yes" ] } } ] ];
 	var interviewFetcher = new XMLHttpRequest();
 	interviewFetcher.onreadystatechange = function(){
@@ -330,7 +330,7 @@ var app = {
 		app.render();
 	    }
 	};
-	interviewFetcher.open("GET", "/data/interview.yaml");
+	interviewFetcher.open("GET", "data/interview.yaml");
 	interviewFetcher.send();
 	var templatesFetcher = new XMLHttpRequest();
 	templatesFetcher.onreadystatechange = function(){
@@ -341,19 +341,8 @@ var app = {
 		console.log(JSON.stringify(app.templateTable));
 	    }
 	};
-	templatesFetcher.open("GET", "/data/templates.txt");
+	templatesFetcher.open("GET", "data/templates.txt");
         templatesFetcher.send();
-	}else{
-	    window.setTimeout(function(){
- 		app.interview = jsyaml.load(interview_blob);
-		app.interviewTable = numerateAndFix(app.interview);
-		//alert(JSON.stringify(app.interviewTable));
-		app.current = [ 0 ];
-		app.render();
-		app.templates = templates_blob;
-		app.templateTable = parseTemplates(app.templates);
-	    }, 0);
-	}
     }
 };
 
