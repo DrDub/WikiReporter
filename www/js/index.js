@@ -18,69 +18,6 @@ function getSelectValues(select) {
   return result;
 }
 
-function numerateAndFix(top){
-    // top is array of objects
-    var count = 0;
-    var table = {};
-    var previous = null;
-    for(var idx = 0; idx < top.length; idx++){
-	var node = top[idx];
-	node["id"] = count;
-	table[count] = node;
-	if(previous){
-	    previous["next"] = count;
-	}
-	previous = node;
-	count += 1;
-	// for the only key other than "id", numerate all the options
-	var label;
-	for(var key in node){
-	    if(key != "id"){
-		label = key;
-		for(var idx2=0; idx2 < node[key].length; idx2++){
-		    var node2 = node[key][idx2];
-		    node2["id"] = count;
-		    node2["level"] = 1;
-		    table[count] = node2;
-		    count += 1;
-		}
-	    }
-	}
-	node["label"] = label;
-	node["level"] = 0;
-    }
-    return table;
-}
-
-function parseTemplates(templateString){
-    var table=[];
-    var templateList = templateString.split("\n");
-    for(var idx=0;idx<templateList.length; idx++){
-	var vars={};
-	var entries = [];
-	var str = templateList[idx];
-	var parts = str.split(/\$/);
-	entries.push( {"type":"txt", "value":parts[0] } );
-	for(var idx2=1; idx2<parts.length; idx2++){
-	    var part = parts[idx2];
-	    var match =/[^a-zA-Z]/.exec(part);
-	    var theVar;
-	    if(match){
-		theVar = part.substr(0,match.index);
-	    }else{
-		theVar = part;
-	    }
-	    vars[theVar] = parts.length;
-	    entries.push( {"type":"var", "value":theVar} );
-	    if(match){
-		entries.push( {"type":"txt", "value":part.substr(match.index)} );
-	    }
-	}
-	table.push({"vars":vars,"entries":entries});
-    }
-    return table;
-}
-
 function harvest(top){
     var result = {};
     var templates = {};
@@ -99,146 +36,30 @@ function harvest(top){
     return [ result, templates, order ];
 }
 
-function generate(){
-    var harvested = harvest(app.interview);
-    var data = harvested[0];
-    var templates = harvested[1];
-    var order = harvested[2];
-    var available = {};
-    var rendered = {};
-    
-    var text;
-    if(order.length == 0){
-	text = "Please select some items.";
+function setVisibility(id, visible){
+    var elem = document.getElementById(id);
+    if(visible){
+	elem.style.visibility="visible";
+	    elem.style.display="block";
     }else{
-	text = "";
-
-	for(var idx=0; idx<order.length; idx++){
-	    var name = order[idx];
-	    available[name] = true;
-	    var txts = [];
-	    
-	    for(var key in data[name]){
-		if(data[name][key] instanceof Object){
-		    if('head' in data[name][key]){
-			txts.push(data[name][key].head);
-		    }else{
-			txts.push(JSON.stringify(data[name][key]));
-		    }
-		} else {
-		    txts.push(data[name][key]);
-		}
-	    }
-	    if(txts.length == 0){
-		// ignore
-		available[name] = false;
-	    }else{
-		var txt = txts[0];
-		for(var idx2=1; idx2 < txts.length-1; idx++){
-		    txt += ", " + txts[idx2];
-		}
-		if(txts.length > 1){
-		    txt += " and " + txts[txts.length-1];
-		}
-		rendered[name] = txt;
-	    }
-	}
-
-	for(var idx=0; idx<order.length; idx++){
-	    var name = order[idx];
-	    if(available[name]){
-		// look for templates that include name
-		var relatedTemplates = [];
-		var winningTemplate = null;
-		for(var idx2=0; idx2<app.templateTable.length; idx2++){
-		    var template = app.templateTable[idx2];
-		    if(name in template.vars) {
-			// check whether the rest of the data is available
-			var allAvailable = true;
-			for(var other in template.vars){
-			    if(!(other in available && available[other])){
-				allAvailable = false;
-			    }
-			    if(allAvailable){
-				relatedTemplates.push(template);
-				if(!winningTemplate || winningTemplate.entries.length < template.entries.length){
-				    winningTemplate = template;
-				}
-			    }
-			}
-		    }
-		}
-		if(winningTemplate){
-		    for(var idx2=0;idx2<winningTemplate.entries.length; idx2++){
-			var entry = winningTemplate.entries[idx2];
-			if(entry.type == "var"){
-			    text += rendered[entry.value];
-			    available[entry.value] = false;
-			}else{
-			    text += entry.value;
-			}
-		    }
-		}else{
-		    text += templates[name].replace(/\$[a-zA-Z]+/, rendered[name]) + " ";
-		    available[name] = false;
-		}
-	    }
-	}
+	elem.style.visibility="hidden";
+	elem.style.display="none";
     }
-
-    text += "\n\n<!-- " + JSON.stringify(data) + " -->";
-    document.getElementById("txt_output").innerHTML = text;
-
-    
-    var eventname = "unknownevent";
-    if('eventname' in data && 'txt' in data.eventname){
-	eventname = data.eventname.txt;
-    }
-
-    document.getElementById("wiki_link").href = 'https://en.wikinews.org/w/index.php?action=edit&preload=Wikinews%3AWikiReporter%2Fdraft&editintro=Wikinews%3AWikiReporter%2Fintro&title='+eventname;
-    document.getElementById("photo_link").href = 'https://commons.wikimedia.org/w/index.php?title=Special:UploadWizard&campaign=WikiReporter&categories=' + eventname + '|WikiReporter&description=' + eventname;
 }
 
 var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    start: function() {
 	var current = "main";
 	app.setPane = function(pane){
-	    document.getElementById(current).style.visibility="hidden";
-	    document.getElementById(current).style.display="none";
+	    setVisibility(current, false);
 	    current = pane;
-	    document.getElementById(current).style.visibility="visible";
-	    document.getElementById(current).style.display="block";
+	    setVisibility(current, true);
 	};
 	var button_generate = true;
 	app.toggleButtons = function(){
-	    if(button_generate){
-		button_generate = false;
-		document.getElementById("btn_generate").style.visibility="hidden";
-		document.getElementById("btn_generate").style.display="none";
-		document.getElementById("btn_back").style.visibility="visible";
-		document.getElementById("btn_back").style.display="block";
-	    }else{
-		button_generate = true;
-		document.getElementById("btn_back").style.visibility="hidden";
-		document.getElementById("btn_back").style.display="none";
-		document.getElementById("btn_generate").style.visibility="visible";
-		document.getElementById("btn_generate").style.display="block";
-	    }
+	    button_generate = !button_generate;
+	    setVisibility("btn_generate", button_generate);
+	    setVisibility("btn_back", !button_generate);
 	};
 	app.doneButton = function(btnId) {
 	    var btn = document.getElementById(btnId);
@@ -316,37 +137,20 @@ var app = {
 	    app.current.pop();
 	    app.render();
 	};
-	app.generate = function() { generate() };
-
-	app.interview = null; //[ "loading?" : [ { "is loading?" : { "options" : [ "yes" ] } } ] ];
-	var interviewFetcher = new XMLHttpRequest();
-	interviewFetcher.onreadystatechange = function(){
-	    if (interviewFetcher.readyState == 4 && interviewFetcher.status == 200) {
-		app.interview = jsyaml.load(interviewFetcher.responseText);
-		app.interviewTable = numerateAndFix(app.interview);
-		//alert(JSON.stringify(app.interview));
-		console.log(JSON.stringify(app.interview));
-		app.current = [ 0 ];
-		app.render();
-	    }
+	app.generate = function() {
+	    var gen = wrGenerator.generate();
+	    
+	    document.getElementById("txt_output").innerHTML = gen.text;
+	    document.getElementById("wiki_link").href =
+		'https://en.wikinews.org/w/index.php?'+
+		'action=edit&preload=Wikinews%3AWikiReporter%2Fdraft&'+
+		'editintro=Wikinews%3AWikiReporter%2Fintro&title='+gen.eventname;
+	    document.getElementById("photo_link").href =
+		'https://commons.wikimedia.org/w/index.php?' + 
+		'title=Special:UploadWizard&campaign=WikiReporter&categories=' + gen.eventname +
+		'|WikiReporter&description=' + gen.eventname;
 	};
-	interviewFetcher.open("GET", "data/interview.yaml");
-	interviewFetcher.send();
-	var templatesFetcher = new XMLHttpRequest();
-	templatesFetcher.onreadystatechange = function(){
-	    if (templatesFetcher.readyState == 4 && templatesFetcher.status == 200) {
-		app.templates = templatesFetcher.responseText;
-		app.templateTable = parseTemplates(app.templates);
-		//alert(JSON.stringify(app.interview));
-		console.log(JSON.stringify(app.templateTable));
-	    }
-	};
-	templatesFetcher.open("GET", "data/templates.txt");
-        templatesFetcher.send();
     }
 };
 
-app.initialize();
-if(!window.cordova){
-    app.onDeviceReady();
-}
+app.start();
